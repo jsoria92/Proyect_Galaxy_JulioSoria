@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "3ed30f88-04ce-43c6-bc89-89868c35f34c",
+		"name": "Repositorios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32150214",
+		"_collection_link": "https://www.postman.com/payload-participant-72604676/workspace/proyectojs/collection/32150214-3ed30f88-04ce-43c6-bc89-89868c35f34c?action=share&source=collection_link&creator=32150214"
+	},
+	"item": [
+		{
+			"name": "Obtener Lista",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code 200\",function ()\r",
+							"{pm.expect(p.response.code).to.equals(200);});\r",
+							"pm.test(\"Response status code 301\",function ()\r",
+							"{pm.expect(p.response.code).to.equals(301);});\r",
+							"pm.test(\"Response status code 403\",function ()\r",
+							"{pm.expect(p.response.code).to.equals(403);});\r",
+							"pm.test(\"Response status code 404\",function ()\r",
+							"{pm.expect(p.response.code).to.equals(404);});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://api.github.com/repos/jsoria92/RepositorioJS1"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Lista",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"RepositorioJS1\",\r\n\t\"description\": \"Mi proyecto version 1\",\r\n\t\"homepage\": \"https://github.com\",\r\n\t\"private\": \"false\",\r\n\t\"has_issues\": true,\r\n\t\"has_projects\": true,\r\n\t\"has_wiki\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api.github.com/user/repos"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function (){\r",
+							"pm.expect(p.response.code).to.equal(200);});\r",
+							"pm.test(\"Response status code is 307\", function (){\r",
+							"pm.expect(p.response.code).to.equal(307);});\r",
+							"pm.test(\"Response status code is 403\", function (){\r",
+							"pm.expect(p.response.code).to.equal(403);});\r",
+							"pm.test(\"Response status code is 404\", function (){\r",
+							"pm.expect(p.response.code).to.equal(404);});\r",
+							"pm.test(\"Response status code is 422\", function (){\r",
+							"pm.expect(p.response.code).to.equal(422);});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"cambioProyectoJS5\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api.github.com/repos/jsoria92/cambioProyectoJS4"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "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"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"cambioProyectoJS5\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api.github.com/repos/jsoria92/RepositorioJS1"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "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"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
